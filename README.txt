@@ -11,7 +11,7 @@ Admin and regular users can send message, read inbox and outbox.
 Jaxb2 plugin in pom.xml will create Java classes needed by the server side.
 Then maven will be able to create the executable jar file.
 
-Application.java can be used the deploy the website on localhost:8080, otherwise command line is an option.
+Application.java can be used to run and deploy the website on localhost:8080, otherwise command line is an option.
 
 ------------------------------------------------------------------------------------------------------------------------
 default admin for login:
