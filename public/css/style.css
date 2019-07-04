@@ -1,0 +1,277 @@
+body#loginBody {
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+html {
+    height: 88%;
+}
+
+
+/* Style the general body */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+    background-color: #EDEDED;
+    height: 100%;
+}
+
+
+/* Style the container classes */
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+
+/* Style the header */
+
+header {
+    padding-top: 2px;
+    min-height: 70px;
+}
+
+header#mailPage {
+    background: linear-gradient(to top, #EDEDED, #abbaab);
+}
+
+/*Style the input boxes*/
+
+input[type=text], [type=password],
+textarea,
+.selectBox{
+    padding: 6px 8px;
+    border: 2px solid #D7CDE5;
+    border-radius: 3px;
+    height: 100%;
+    background: #f7f7f7;
+    outline: none;
+}
+
+/*Style the buttons*/
+
+input[type=button] {
+    background-color: #040506;
+    border: none;
+    color: white;
+    padding: 4px 9px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition-duration: 0.4s;
+}
+
+input[type=button]:hover {
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.24), 0 5px 7px 0 rgba(0, 0, 0, 0.19);
+    background-color: #A54343;
+}
+
+
+/* Style the login form */
+
+form[id=loginForm] {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+}
+
+
+/* Style the command form */
+
+form[id=deleterForm],
+[id=updaterForm],
+[id=createrForm],
+[id=messagerForm] {
+    display: none;
+    margin-top: 30px;
+}
+
+
+/* Style form input placeholders */
+
+::placeholder {
+    color: #90BD9E;
+}
+
+
+/* Style the minitab class*/
+
+.miniTab {
+    display: none;
+    float: left;
+    border: 1px solid #ccc;
+    background: linear-gradient(to top, #8e9eab, #eef2f3);
+    width: 7%;
+    height: 100%;
+    transition: 0.5s;
+}
+
+
+/* Style the minitab buttons*/
+
+.miniTab button {
+    font-size: 11px;
+    background-color: inherit;
+    display: block;
+    color: black;
+    padding: 20px 14px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+/* Change background color of buttons on hover */
+
+.miniTab button:hover {
+    background-color: #E7EDED;
+}
+
+
+/* Create an active/current "tab button" class */
+
+.miniTab button.active {
+    background-color: #ccc;
+}
+
+
+/* Style the main tab */
+
+.tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 10%;
+    height: 100%;
+    /*background: linear-gradient(to bottom, #536976, #292e49);*/
+}
+
+
+/* Style the buttons that are used to open the tab content */
+
+.tab button {
+    font-size: 13px;
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 19px 13px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+/* Change background color of buttons on hover */
+
+.tab button:hover {
+    /*background: linear-gradient(to right, #1f1c2c, #928dab);*/
+    background: linear-gradient(to right, #8e9eab, #eef2f3);
+}
+
+
+/* Create an active/current "tab button" class */
+
+.tab button.active {
+    background-color: #ccc;
+}
+
+
+/* Style the tables */
+
+table {
+    font-size: 13px;
+    border-collapse: collapse;
+    width: 40%;
+    margin-left: 20%;
+    margin-top: 3%;
+    overflow: inherit;
+}
+
+td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 9px;
+}
+
+th {
+    border: 1px solid #dddddd;
+    padding: 9px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #949494;
+    height: 20px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+tr:hover {
+    background-color: #6A6969;
+    color: whitesmoke;
+}
+
+
+/*Style the message box*/
+
+input[id="sendMessageBox"] {
+    width: 30%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+
+/*Style the greeting part*/
+
+div[id="userGreeter"] {
+    font-size: 14px;
+    display: block;
+    /*background: linear-gradient(to left, #1f1c2c, #928dab);*/
+    background: linear-gradient(to left, #525252, #3d72b4);
+    color: whitesmoke;
+    padding: 14px 11px;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+.material-icons {
+    position: relative;
+    top: 4px;
+}
+
+
+/*Some responsive features*/
+
+@media screen and (max-width: 700px) {
+    .tab,
+    .miniTab {
+        width: 100%;
+        height: auto;
+        position: relative;
+        text-align: center;
+        float: none;
+    }
+    table {
+        overflow-x: auto;
+    }
+}

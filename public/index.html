@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Aytac Anil Durmaz">
+    <title>Welcome to iMail!</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script type="text/javascript" src="javascript/index.js"></script>
+</head>
+<body id="loginBody">
+    <header>
+         <div class="container">
+            <div id="branding">
+                <h1><img src="iMail-Login-Page.png"></h1>
+            </div>
+         </div>
+    </header>
+    <section id="loginPage">
+        <div class="container">
+            <form id="loginForm" name="myForm" method="post">
+                <i class="material-icons">perm_identity</i> <br>
+                <input type="text" placeholder="username" name="username" required> <br> <br>
+                <i class="material-icons">lock</i> <br>
+                <input type="password" placeholder="password" name="password" required> <br> <br>
+                <input type="button" value="login" onclick="soap()">
+            </form>
+            <div id="unsuccessfulLogin"></div>
+        </div>
+    </section>
+</body>
+</html>

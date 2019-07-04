@@ -1,0 +1,228 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/gs-producing-web-service"
+           targetNamespace="http://spring.io/guides/gs-producing-web-service" elementFormDefault="qualified">
+
+
+    <!--Login with username and password, return a new session ID and admin status-->
+    <xs:element name="loginRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="username" type="xs:string"/>
+                <xs:element name="password" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="loginResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="newSessionId" type="xs:int"/>
+                <xs:element name="admin" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!--Login end-->
+
+    <!--Logout, remove the session id from database, return true or false-->
+    <xs:element name="logoutRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionId" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="logoutResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="logoutValid" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!--Logout end-->
+
+    <!--Find a user with username and return the user-->
+    <xs:element name="findRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionId" type="xs:int"/>
+                <xs:element name="username" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="findResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user" type="tns:user"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!--Find end-->
+
+    <!--Get all users and return them-->
+    <xs:element name="getUsersRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionId" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getUsersResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user" type="tns:user" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!--Get all users end-->
+
+    <!--Create a user and return true or false -->
+    <xs:element name="createRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionId" type="xs:int"/>
+                <xs:element name="user" type="tns:user"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="createValid" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!--Create end-->
+
+    <!--Delete a user with username, return true or false-->
+    <xs:element name="deleteRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionId" type="xs:int"/>
+                <xs:element name="username" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="deleteValid" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!--Delete end-->
+
+    <!--Update a user with new information, return true or false-->
+    <xs:element name="updateRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionId" type="xs:int"/>
+                <xs:element name="targetUsername" type="xs:string"/>
+                <xs:element name="infoCategory" type="xs:string"/>
+                <xs:element name="newInfo" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="updateValid" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!--Update end-->
+
+    <!--Send a message, return true or false-->
+    <xs:element name="sendMessageRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionId" type="xs:int"/>
+                <xs:element name="packedMessage" type="tns:message"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="sendMessageResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sendMessageValid" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!--Send Message end-->
+
+
+    <!--Read the outbox, return messages-->
+    <xs:element name="getOutboxRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionId" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getOutboxResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="outbox" type="tns:message"  maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!--Read outbox end-->
+
+    <!--Read the inbox, return messages-->
+    <xs:element name="getInboxRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sessionId" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getInboxResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="inbox" type="tns:message"  maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!--Read inbox end-->
+
+    <!--User class-->
+    <xs:complexType name="user">
+        <xs:sequence>
+            <xs:element name="username"  type="xs:string"/>
+            <xs:element name="password"  type="xs:string"/>
+            <xs:element name="name"      type="xs:string"/>
+            <xs:element name="surname"   type="xs:string"/>
+            <xs:element name="gender"    type="xs:string"/>
+            <xs:element name="birthday"  type="xs:string"/>
+            <xs:element name="mail"      type="xs:string"/>
+            <xs:element name="status"    type="tns:status"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!--Message class-->
+    <xs:complexType name="message">
+        <xs:sequence>
+            <xs:element name="from"    type="xs:string"/>
+            <xs:element name="to"      type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+            <xs:element name="date"    type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!--Status-->
+    <xs:simpleType name="status">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="admin"/>
+            <xs:enumeration value="regular"/>
+            <xs:enumeration value="null"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

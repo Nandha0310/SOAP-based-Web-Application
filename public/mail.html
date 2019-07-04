@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Aytac Anil Durmaz">
+    <title>iMail</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript" src="javascript/mail.js"></script>
+</head>
+<body onload ="initialPage()">
+<header id="mailPage">
+    <div class="container">
+        <div id="branding">
+            <h1><img src="imail.png"></h1>
+        </div>
+    </div>
+</header>
+
+<!--Main tab-->
+<div class="tab">
+    <div id="userGreeter"
+         onmouseover="funcDelay= setTimeout('clearPage()', 900)"
+         onmouseout="clearTimeout(funcDelay)">
+        <i class="material-icons">person</i></div>
+
+    <button class="tablinks"
+            onmouseover="funcDelay= setTimeout('userTable()', 300)"
+            onmouseout="clearTimeout(funcDelay)" id="usersButton">
+        <i class="material-icons">people_outline</i><b>Users</b></button>
+
+    <button class="tablinks"
+            onmouseover="funcDelay= setTimeout('showMailTab()', 300)"
+            onmouseout="clearTimeout(funcDelay)">
+        <i class="material-icons">mail_outline</i><b>Mails</b></button>
+
+    <button class="tablinks" onclick="closeThisSession()">
+        <i class="material-icons">close</i><b>Logout</b></button>
+</div>
+
+<!--Users sub tab-->
+<div id="usersTab" class="miniTab">
+    <button class="tablinks" onclick="createForm()"><i class="material-icons">person_add</i></button>
+    <button class="tablinks" onclick="updateForm()">Update User</button>
+    <button class="tablinks" onclick="deleteForm()">Delete User</button>
+</div>
+
+<!--Mails sub tab-->
+<div id="mailsTab" class="miniTab">
+    <button class="tablinks" onclick="sendMessageForm()"><i class="material-icons">send</i><b>Send Message</b></button>
+    <button class="tablinks" onclick="showInbox()">Read inbox</button>
+    <button class="tablinks" onclick="showOutbox()">Read outbox</button>
+</div>
+
+<!--Forms of users page-->
+<section id="usersPage">
+    <div class="container">
+
+        <form id="createrForm" name="createrForm" method="post" autocomplete="off">
+            <input type="text" placeholder="new username" name="username" required> <br> <br>
+            <input type="text" placeholder="new password" name="password" required> <br> <br>
+            <input type="text" placeholder="name" name="name" required> <br> <br>
+            <input type="text" placeholder="surname" name="surname" required> <br> <br>
+            <input type="text" placeholder="gender" name="gender" required> <br> <br>
+            <input type="text" placeholder="birthday" name="birthday" required> <br> <br>
+            <input type="text" placeholder="mail" name="mail" required> <br> <br>
+            <input type="button" value="create" onclick="createUser()">
+            <div id="answerToCreate"></div>
+        </form>
+
+        <form id="updaterForm" name="updaterForm" method="post" autocomplete="off">
+            <select id="updateSelect" name="username" class="selectBox" required>
+            </select> <br> <br>
+            <select name="infoCategory" class="selectBox">
+                <option value="0">Select a category</option>
+                <option value="password">Password</option>
+                <option value="name">Name</option>
+                <option value="surname">Surname</option>
+                <option value="gender">Gender</option>
+                <option value="birthday">Birthday</option>
+                <option value="e_mail">Mail</option>
+            </select> <br><br>
+            <input type="text" placeholder="new information?" name="newInfo" required><br> <br>
+            <input type="button" value="update" onclick="updateUser()">
+            <div id="answerToUpdate"></div>
+        </form>
+
+        <form id="deleterForm" name="deleterForm" method="post" autocomplete="off">
+            <select id="deleteSelect" name="username" class="selectBox" required>
+            </select> <br> <br>
+            <input type="button" value="delete" onclick="deleteUser()">
+            <div id="answerToDelete"></div>
+        </form>
+
+    </div>
+</section>
+
+<!--Forms of mails page-->
+<section id="mailsPage">
+    <div class="container">
+        <form id="messagerForm" name="messagerForm" method="post" autocomplete="off">
+            <input type="text" placeholder="username" name="username" required> <br><br>
+            <textarea rows="4" cols="50" placeholder="message" name="message" required id="sendMessageBox"></textarea><br><br>
+            <input type="button" value="Send!" onclick="sendMessage()">
+            <div id="answerToSendMessage"></div>
+        </form>
+    </div>
+</section>
+
+<!--Tables-->
+<table id="usersTable"></table>
+<table id="inboxTable"></table>
+<table id="outboxTable"></table>
+
+</body>
+</html>
