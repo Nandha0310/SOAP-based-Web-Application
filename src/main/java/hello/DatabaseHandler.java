@@ -144,11 +144,11 @@ public class DatabaseHandler{
                 User admin = new User();
                 admin.setUsername("admin");
                 admin.setPassword("1357");
-                admin.setName("Aytac Anil");
-                admin.setSurname("Durmaz");
-                admin.setGender("male");
-                admin.setBirthday("28.04.1998");
-                admin.setMail("aytacanildurmaz@gmail.com");
+                admin.setName("Default");
+                admin.setSurname("xxx");
+                admin.setGender("xxx");
+                admin.setBirthday("04.07.2019");
+                admin.setMail("mail.com");
                 admin.setStatus(Status.ADMIN);
 
                 insertUser(admin);
