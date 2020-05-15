@@ -8,20 +8,12 @@ Users must authenticate to use the application on the client side. There are two
 Admin can add, update, delete users and can see all the users in the database.
 Admin and regular users can send message, read inbox and outbox.
 
-Jaxb2 plugin in pom.xml will create Java classes needed by the server side.
-Then maven will be able to create the executable jar file.
+How to run:
+	mvn install
+	java -jar target\gs-producting-web-service-0.1.0.jar
 
-Application.java can be used to run and deploy the website on localhost:8080, otherwise command line is an option.
+Before running, database configuration must be changed at DatabaseHandler.java
 
-------------------------------------------------------------------------------------------------------------------------
 default admin for login:
 	username= admin
 	password= 1357
-	
-default database name:
-	test
-	
-default tables' names:
-	users
-	messages
-	sessions
